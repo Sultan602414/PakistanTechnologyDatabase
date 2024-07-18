@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display {{table}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div>
+    <h1>Display {{table}}</h1>
+    <form action="{{ url_for('process_search', table=table) }}" method="post">
+        <label for="client_id">SoftwareHouseID:</label>
+            <input type="text" id="client_id" name="client_id" required>
+            <label for="softwareDevelopment">SoftwareDevelopmentompanyID:</label>
+            <input type="text" id="softwareDevelopment" name="softwareDevelopment" required>
+        <button type="submit">Display</button>
+    </form>
+    </div>
+</body>
+</html>

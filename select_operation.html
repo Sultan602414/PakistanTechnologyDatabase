@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Operation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Select an Operation</h1>
+        <ul>
+            <li><a href="{{ url_for('select_table', operation='insert') }}">Insert</a></li>
+            <li><a href="{{ url_for('select_table', operation='delete') }}">Delete</a></li>
+            <li><a href="{{ url_for('select_table', operation='update') }}">Update</a></li>
+            <li><a href="{{ url_for('select_table', operation='display_on_search') }}">Display on Search</a></li>
+            <li><a href="{{ url_for('select_table', operation='display_all') }}">Display All</a></li>
+        </ul>
+    </div>
+</body>
+</html>

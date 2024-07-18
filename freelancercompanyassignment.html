@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Freelancer Company Assignment</title>
+    <script>
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Update Freelancer Company Assignment</h1>
+    <form action="{{ url_for('process_update', table='FreelancerCompanyAssignment') }}" method="post">
+        <label for="fc_assignment_id">Freelancer Company Assignment ID (To update other values):</label>
+        <input type="text" id="fc_assignment_id" name="fc_assignment_id" required><br><br>
+        <label for="company_id">Company ID:</label>
+        <input type="text" id="company_id" name="company_id" required><br><br>
+        <label for="freelancer_id">Freelancer ID:</label>
+        <input type="text" id="freelancer_id" name="freelancer_id" required><br><br>
+        <label for="payment">Payment:</label>
+        <input type="text" id="payment" name="payment" required><br><br>
+        <input type="submit" value="Update">
+    </form>
+</div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div id="flash-messages" style="display:none;">
+        {{ messages|tojson }}
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endif %}
+{% endwith %}
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update Telecommunication Stats</title>
+    <script>
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Update Telecommunication Stats</h1>
+        <form action="{{ url_for('process_update', table='Telecommunication_Stats') }}" method="post">
+            <label for="telecommunication_stats_id">Telecommunication Stats ID (To update other values):</label>
+            <input type="text" id="telecommunication_stats_id" name="telecommunication_stats_id" required><br><br>
+            <label for="cellular_mobile">Cellular Mobile:</label>
+            <input type="text" id="cellular_mobile" name="cellular_mobile" required><br><br>
+            <label for="wireless">Wireless:</label>
+            <input type="text" id="wireless" name="wireless" required><br><br>
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" required><br><br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div id="flash-messages" style="display:none;">
+            {{ messages|tojson }}
+        </div>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% endif %}
+{% endwith %}
+</body>
+
+</html>

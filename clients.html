@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Client</title>
+    <script>    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Update Client</h1>
+    <form action="{{ url_for('process_update', table='Clients') }}" method="post">
+        <label for="company_client_id">Company Client ID (To update other values):</label>
+        <input type="text" id="company_client_id" name="company_client_id" required><br><br>
+        <label for="sdc_id">SDC ID:</label>
+        <input type="text" id="sdc_id" name="sdc_id" required><br><br>
+        <label for="client_name">Client Name:</label>
+        <input type="text" id="client_name" name="client_name" required><br><br>
+        <input type="submit" value="Update">
+    </form>
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div id="flash-messages" style="display:none;">
+            {{ messages|tojson }}
+        </div>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% endif %}
+{% endwith %}
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Telecommunication</title>
+    <script>
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Update Telecommunication</h1>
+    <form action="{{ url_for('process_update', table='Telecommunication') }}" method="post" >
+        <label for="telecommunication_id">Telecommunication ID (To update other values):</label>
+        <input type="text" id="telecommunication_id" name="telecommunication_id" required><br><br>
+        <label for="tsid">TSID:</label>
+        <input type="text" id="tsid" name="tsid" required><br><br>
+        <label for="softwarehouse_id">Software House ID:</label>
+        <input type="text" id="softwarehouse_id" name="softwarehouse_id" required><br><br>
+        <label for="month">Month:</label>
+        <input type="text" id="month" name="month" required><br><br>
+        <label for="jazz">Jazz:</label>
+        <input type="text" id="jazz" name="jazz" required><br><br>
+        <label for="ufone">Ufone:</label>
+        <input type="text" id="ufone" name="ufone" required><br><br>
+        <label for="telenor">Telenor:</label>
+        <input type="text" id="telenor" name="telenor" required><br><br>
+        <label for="warid">Warid:</label>
+        <input type="text" id="warid" name="warid" required><br><br>
+        <label for="zong">Zong:</label>
+        <input type="text" id="zong" name="zong" required><br><br>
+        <input type="submit" value="Update">
+    </form>
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div id="flash-messages" style="display:none;">
+            {{ messages|tojson }}
+        </div>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% endif %}
+{% endwith %}
+</body>
+</html>

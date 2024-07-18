@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Tech Indicator</title>
+    <script>
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Update Tech Indicator</h1>
+    <form action="{{ url_for('process_update', table='Tech_Indicator') }}" method="post">
+        <label for="tech_id">Tech ID (To update other values):</label>
+        <input type="text" id="tech_id" name="tech_id" required><br><br>
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" required><br><br>
+        <label for="value">Value:</label>
+        <input type="text" id="value" name="value" required><br><br>
+        <label for="indicator_code">Indicator Code:</label>
+        <input type="text" id="indicator_code" name="indicator_code" required><br><br>
+        <input type="submit" value="Update">
+    </form>
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div id="flash-messages" style="display:none;">
+            {{ messages|tojson }}
+        </div>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% endif %}
+{% endwith %}
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Software House</title>
+    <script>
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Update Software House</h1>
+    <form action="{{ url_for('process_update', table='Software_House') }}" method="post">
+        <label for="softwarehouse_id">Software House ID (To update other values):</label>
+        <input type="text" id="softwarehouse_id" name="softwarehouse_id" required><br><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="about">About:</label>
+        <input type="text" id="about" name="about" required><br><br>
+        <label for="software_company">Software Company:</label>
+        <input type="text" id="software_company" name="software_company" required><br><br>
+        <input type="submit" value="Update">
+    </form>
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div id="flash-messages" style="display:none;">
+            {{ messages|tojson }}
+        </div>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% endif %}
+{% endwith %}
+</body>
+</html>

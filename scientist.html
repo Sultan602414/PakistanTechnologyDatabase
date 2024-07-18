@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Scientist</title>
+    <script>
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Update Scientist</h1>
+    <form action="{{ url_for('process_update', table='Scientist') }}" method="post" >
+        <label for="scientist_id">Scientist ID (To update other values):</label>
+        <input type="text" id="scientist_id" name="scientist_id" required><br><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="discipline">Discipline:</label>
+        <input type="text" id="discipline" name="discipline" required><br><br>
+        <label for="qualification">Qualification:</label>
+        <input type="text" id="qualification" name="qualification" required><br><br>
+        <label for="affiliation">Affiliation:</label>
+        <input type="text" id="affiliation" name="affiliation" required><br><br>
+        <label for="tech_id">Tech ID:</label>
+        <input type="text" id="tech_id" name="tech_id" required><br><br>
+        <input type="submit" value="Update">
+    </form>
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div id="flash-messages" style="display:none;">
+            {{ messages|tojson }}
+        </div>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% endif %}
+{% endwith %}
+</body>
+</html>
